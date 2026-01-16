@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirsten Kapp | Professor of Biological Sciences</title>
+    <style>
+        /* --- Embedded CSS --- */
+        :root {
+            --primary-color: #008b8b; /* Teal pulled from the shirt in the photo */
+            --secondary-color: #2c3e50; /* Dark slate blue for text */
+            --bg-color: #f4f7f6; /* Light gray background */
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 95vh;
+        }
+
+        .profile-card {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Responsive layout for larger screens */
+        @media (min-width: 768px) {
+            .profile-card {
+                flex-direction: row;
+            }
+        }
+
+        /* Left Sidebar with Photo */
+        .profile-sidebar {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 30px;
+            flex: 1 1 35%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .profile-sidebar h1 {
+            margin: 10px 0 5px;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .profile-sidebar h2 {
+            margin: 0 0 20px;
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            background-color: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-color);
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* Right Content Area */
+        .profile-content {
+            padding: 40px;
+            flex: 1 1 65%;
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+
+        .bio-text {
+            margin-bottom: 30px;
+        }
+
+        /* Research Expandable Section Styling */
+        .research-summary {
+            background-color: #f9fbfc;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .research-toggle-btn {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            cursor: pointer;
+            padding: 0;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .research-toggle-btn:hover {
+            text-decoration: underline;
+        }
+
+        #research-details {
+            display: none; /* Hidden by default for compactness */
+            margin-top: 15px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .research-highlights li {
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<main class="profile-card">
+    <section class="profile-sidebar">
+        <img src="image_0.png" alt="Kirsten Kapp in field gear on a boat" class="profile-img">
+        <h1 id="dynamic-greeting">Kirsten Kapp</h1>
+        <h2>Professor Biological Sciences</h2>
+        <div class="contact-info">
+            <p>&#9993; <a href="mailto:kkapp@cwc.edu">kkapp@cwc.edu</a></p>
+        </div>
+    </section>
+
+    <section class="profile-content">
+        <article>
+            <h3 class="section-title">At Central Wyoming College</h3>
+            <p class="bio-text">
+                As a Professor of Biological Sciences at Central Wyoming College (CWC), I am deeply committed to field-based education and connecting students with the unique ecosystems of the Rocky Mountain West. My work focuses on integrating rigorous scientific inquiry with hands-on learning experiences, particularly within the Greater Yellowstone Ecosystem. I mentor undergraduate students through real-world research projects, emphasizing environmental science and aquatic ecology.
+            </p>
+        </article>
+
+        <article class="research-summary">
+            <h3 class="section-title" style="margin-top:0;">Research Focus: Microplastics</h3>
+            <p>
+                My primary research investigates the prevalence and distribution of microplastic pollution in freshwater systems, challenging the assumption that remote environments are untouched by human contaminants.
+            </p>
+            
+            <button id="toggle-research" class="research-toggle-btn">
+                Read Research Summary &#9662;
+            </button>
+
+            <div id="research-details">
+                <ul class="research-highlights">
+                    <li><strong>Greater Yellowstone Ecosystem:</strong> My studies have documented significant microplastic contamination in the Snake River and other high-elevation freshwater bodies previously considered pristine.</li>
+                    <li><strong>Sources & Transport:</strong> Our findings suggest that atmospheric deposition plays a major role in transporting microplastics to remote alpine environments.</li>
+                    <li><strong>Citizen Science & Education:</strong> A cornerstone of this research is involving CWC undergraduates and citizen scientists in data collection, providing critical field experience while contributing to a growing global dataset on freshwater plastic pollution.</li>
+                </ul>
+            </div>
+        </article>
+    </section>
+</main>
+
+<script>
+    /* --- Embedded JavaScript --- */
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Dynamic Greeting based on time of day
+        const greetingHeader = document.getElementById('dynamic-greeting');
+        const hour = new Date().getHours();
+        let greeting;
+
+        if (hour < 12) {
+            greeting = "Good Morning, I'm Kirsten Kapp";
+        } else if (hour < 18) {
+            greeting = "Good Afternoon, I'm Kirsten Kapp";
+        } else {
+            greeting = "Good Evening, I'm Kirsten Kapp";
+        }
+        // We only set this if the element exists (good practice)
+        if(greetingHeader) {
+             // Using textContent is safer than innerHTML
+            greetingHeader.textContent = greeting;
+        }
+
+
+        // 2. Research Section Toggle Functionality
+        const toggleBtn = document.getElementById('toggle-research');
+        const researchDetails = document.getElementById('research-details');
+
+        if (toggleBtn && researchDetails) {
+            toggleBtn.addEventListener('click', function() {
+                const isHidden = researchDetails.style.display === 'none' || researchDetails.style.display === '';
+                
+                if (isHidden) {
+                    researchDetails.style.display = 'block';
+                    // Change arrow up
+                    this.innerHTML = 'Hide Research Summary &#9652;';
+                } else {
+                    researchDetails.style.display = 'none';
+                    // Change arrow down
+                    this.innerHTML = 'Read Research Summary &#9662;';
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
