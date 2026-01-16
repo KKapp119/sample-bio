@@ -116,6 +116,40 @@
             margin-bottom: 30px;
         }
 
+        /* Education Section Styling */
+        .education-item {
+            margin-bottom: 15px;
+        }
+        
+        .education-degree {
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: block;
+        }
+        
+        .education-school {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Course List Styling */
+        .course-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .course-list li {
+            background-color: #eef2f5;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            border-left: 3px solid var(--primary-color);
+        }
+
         /* Research Expandable Section Styling */
         .research-summary {
             background-color: #f9fbfc;
@@ -160,7 +194,7 @@
 
 <main class="profile-card">
     <section class="profile-sidebar">
-        <img src="image_0.png" alt="Kirsten Kapp in field gear on a boat" class="profile-img">
+        <img src="image_0.png" alt="Kirsten Kapp" class="profile-img">
         <h1 id="dynamic-greeting">Kirsten Kapp</h1>
         <h2>Professor Biological Sciences</h2>
         <div class="contact-info">
@@ -172,8 +206,31 @@
         <article>
             <h3 class="section-title">At Central Wyoming College</h3>
             <p class="bio-text">
-                As a Professor of Biological Sciences at Central Wyoming College (CWC), I am deeply committed to field-based education and connecting students with the unique ecosystems of the Rocky Mountain West. My work focuses on integrating rigorous scientific inquiry with hands-on learning experiences, particularly within the Greater Yellowstone Ecosystem. I mentor undergraduate students through real-world research projects, emphasizing environmental science and aquatic ecology.
+                As a Professor of Biological Sciences at Central Wyoming College (CWC), I am dedicated to fostering scientific literacy and critical thinking in undergraduate students. My teaching philosophy centers on rigorous scientific inquiry and active student engagement in the research process. I mentor students through comprehensive research projects, emphasizing experimental design, data analysis, and the broader applications of biological sciences and aquatic ecology.
             </p>
+        </article>
+        
+        <article>
+            <h3 class="section-title">Education</h3>
+            <div class="education-item">
+                <span class="education-degree">M.S. Conservation Biology & Sustainable Development</span>
+                <span class="education-school">University of Wisconsin-Madison</span>
+            </div>
+            <div class="education-item">
+                <span class="education-degree">B.S. Wildlife and Fisheries Biology</span>
+                <span class="education-school">University of Vermont</span>
+            </div>
+        </article>
+
+        <article>
+            <h3 class="section-title">Courses Taught</h3>
+            <ul class="course-list">
+                <li>General Biology</li>
+                <li>Human Anatomy</li>
+                <li>Human Physiology</li>
+                <li>Environmental Science</li>
+                <li>Life Science</li>
+            </ul>
         </article>
 
         <article class="research-summary">
@@ -213,12 +270,10 @@
         } else {
             greeting = "Good Evening, I'm Kirsten Kapp";
         }
-        // We only set this if the element exists (good practice)
+        
         if(greetingHeader) {
-             // Using textContent is safer than innerHTML
             greetingHeader.textContent = greeting;
         }
-
 
         // 2. Research Section Toggle Functionality
         const toggleBtn = document.getElementById('toggle-research');
@@ -230,11 +285,9 @@
                 
                 if (isHidden) {
                     researchDetails.style.display = 'block';
-                    // Change arrow up
                     this.innerHTML = 'Hide Research Summary &#9652;';
                 } else {
                     researchDetails.style.display = 'none';
-                    // Change arrow down
                     this.innerHTML = 'Read Research Summary &#9662;';
                 }
             });
